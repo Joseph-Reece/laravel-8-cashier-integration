@@ -10,7 +10,7 @@ use Inertia\Inertia;
 
 class PaymentController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -21,6 +21,7 @@ class PaymentController extends Controller
         //
         $data = [
             'intent' => Auth::user()->createSetupIntent(),
+            'Stripe_key' => env('STRIPE_KEY')
         ];
 
         return Inertia::render('Subscription/Payment', [
